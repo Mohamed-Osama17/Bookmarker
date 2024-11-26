@@ -131,14 +131,21 @@ function deletion(deletIndex) {
 function visitWebsite(websiteIndex) {
 
     var httpsRegex = /^https?:\/\//;
-    if (httpsRegex.test(bookmarkArray[websiteIndex]).siteUrl) {
-        open(bookmarkArray[websiteIndex].siteURL);
-    }else {
-        open(`https://${websiteIndex.siteURL}`);
-    }
+    var siteURL = bookmarkArray[websiteIndex].siteUrl;
 
-    console.log(websiteIndex);
-    
+    console.log(bookmarkArray[websiteIndex].siteUrl);
+    console.log(httpsRegex.test(siteURL));
+    console.log(httpsRegex.test(bookmarkArray[websiteIndex]).siteURL)
+
+    if (httpsRegex.test(siteURL)) {
+
+        open(siteURL);
+
+    }else {
+
+        open(`https://${siteURL}`)
+    }
+    console.log(bookmarkArray[websiteIndex].siteUrl);
 }
 
 //&=====>Making sure that user enter the correct data<=====
